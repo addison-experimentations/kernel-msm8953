@@ -1,5 +1,3 @@
-
-
 name: "Build kernel."              # Description of the workflow.
 on:
   push:
@@ -7,7 +5,7 @@ on:
   workflow_dispatch:                                  # Allow to manually trigger workflow.
 jobs:
   build:
-    name: "Build Dark Ages kernel"
+    name: "Build kernel"
     runs-on: ubuntu-latest
     steps:
     - name: "Checkout kernel source"                  # Clone the kernel source.
@@ -24,5 +22,12 @@ jobs:
         compiler: gcc/9                               # Specify toolchain to use
         defconfig: msm8953_defconfig                    # Specify defconfig to use
         image: Image.gz-dtb                           # Specify final build file
+    - name: Release build
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.CHANNEL_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: ${{ github.repository }} on ${{ github.sha }} is built!
+        document: ${{ steps.<step id>.outputs.outfile }}   
 
 # credit to https://forum.xda-developers.com/t/dev-script-android-kernel-actions-easily-create-an-environment-and-build-android-kernels-with-github-action.4301481/
