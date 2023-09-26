@@ -15,7 +15,7 @@ jobs:
     - name: "Checkout zipper"                         # (OPTIONAL) Clone the AnyKernel3 template.
       uses: actions/checkout@v2
       with:
-        repository: lemniskett/AnyKernel3             # Your own AnyKernel3 repository.
+        repository: addison-experimentations/AnyKernel3             # Your own AnyKernel3 repository.
         path: zipper                                  # Clone to path "zipper", REQUIRED.
     - name: "Android kernel build"                    # Build kernel with lemniskett/android-kernel-actions.
       uses: lemniskett/android-kernel-actions@master
