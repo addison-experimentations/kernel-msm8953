@@ -31,14 +31,14 @@ jobs:
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: ${{ github.repository }} on ${{ github.sha }} is built!
         document:  ${{ steps.build.outputs.outfile }}
-    - name: Debugging
-      run: find / -name "Image.gz-dtb" 2>/dev/null
+#    - name: Debugging
+#      run: find / -name "Image.gz-dtb" 2>/dev/null
   #  - name: Setup upterm session
   #    uses: lhotari/action-upterm@v1
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
         name: my-artifact
-        path: ${{ steps.build.outputs.outfile }} 
+        path: /home/runner/work/kernel-msm8953/kernel-msm8953/out/arch/arm64/boot/Image.gz-dtb 
         
 # credit to https://forum.xda-developers.com/t/dev-script-android-kernel-actions-easily-create-an-environment-and-build-android-kernels-with-github-action.4301481/
