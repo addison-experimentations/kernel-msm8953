@@ -1,9 +1,7 @@
 name: "Build kernel."              # Description of the workflow.
 on:
   push:
-    branches: |
-        4.9-addison
-        4.9-addison-workflow                 
+    branches: 4.9-addison              
   workflow_dispatch:                                  # Allow to manually trigger workflow.
 jobs:
   build:
