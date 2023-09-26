@@ -30,10 +30,10 @@ jobs:
         to: ${{ secrets.CHANNEL_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: ${{ github.repository }} on ${{ github.sha }} is built!
-        document:  ${{ steps.build.outputs.outfile }}
-    - name: Debugging
+        document:  /home/runner/work/kernel-msm8953/kernel-msm8953/zipper/*.zip
+   # - name: Debugging
 #      run: find / -name "Image.gz-dtb" 2>/dev/null
-      run: find /home/runner/work/kernel-msm8953/kernel-msm8953/ -type f -name "*.zip" -exec ls -l {} \;
+  #    run: find /home/runner/work/kernel-msm8953/kernel-msm8953/ -type f -name "*.zip" -exec ls -l {} \;
   #  - name: Setup upterm session
   #    uses: lhotari/action-upterm@v1
     - name: 'Upload Artifact'
