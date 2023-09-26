@@ -30,7 +30,9 @@ jobs:
         to: ${{ secrets.CHANNEL_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: ${{ github.repository }} on ${{ github.sha }} is built!
-        document:  ${{ steps.build.outputs.outfile }} 
+        document:  ${{ steps.build.outputs.outfile }}
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
