@@ -31,5 +31,10 @@ jobs:
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: ${{ github.repository }} on ${{ github.sha }} is built!
         document:  ${{ steps.build.outputs.outfile }} 
-
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: ${{ steps.build.outputs.outfile }} 
+        
 # credit to https://forum.xda-developers.com/t/dev-script-android-kernel-actions-easily-create-an-environment-and-build-android-kernels-with-github-action.4301481/
