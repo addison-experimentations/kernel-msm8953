@@ -28,6 +28,6 @@ jobs:
         to: ${{ secrets.CHANNEL_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: ${{ github.repository }} on ${{ github.sha }} is built!
-        document: Image.gz-dtb 
+        document:  ${{ steps.build.outputs.outfile }} 
 
 # credit to https://forum.xda-developers.com/t/dev-script-android-kernel-actions-easily-create-an-environment-and-build-android-kernels-with-github-action.4301481/
